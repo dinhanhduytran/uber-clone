@@ -8,14 +8,18 @@ interface Props {
   className?: string;
 }
 
-export default function Container({ children, className }: Props) {
+const Container = ({ children, className }: Props) => {
   return (
     <SafeAreaView
-      style={tw`flex-1 bg-white ${Platform.OS === "android" ? "mt-5" : "mt-0"}`}
+      style={tw`bg-white flex-1 ${
+        Platform.OS === "android" ? "mt-10" : "mt-0"
+      }`}
     >
-      <View style={[tw`p-5`, className ? tw`${className}` : null]}>
+      <View style={[tw`px-5`, className ? tw`${className}` : null]}>
         {children}
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default Container;

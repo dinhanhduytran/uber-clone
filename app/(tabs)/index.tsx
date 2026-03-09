@@ -1,5 +1,7 @@
 import Container from "@/components/Container";
+import NavOptions from "@/components/NavOptions";
 import SearchBar from "@/components/SearchBar";
+import Suggestion from "@/components/Suggestion";
 import { Image } from "react-native";
 import tw from "twrnc";
 
@@ -14,7 +16,9 @@ export default function HomeScreen() {
       {/* Searchbar */}
       <SearchBar />
       {/* Nav options */}
+      <NavOptions />
       {/* Suggestions */}
+      <Suggestion />
     </Container>
   );
 }
