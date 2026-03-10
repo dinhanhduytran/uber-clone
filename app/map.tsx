@@ -10,7 +10,7 @@ export default function MapScreen() {
       <View style={tw`flex-1`}>
         <MapContent />
       </View>
-      <View style={tw`flex-1 bg-red-400`}>
+      <View style={tw`flex-1`}>
         <NavigateCard />
       </View>
     </Container>

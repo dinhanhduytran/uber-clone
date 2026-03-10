@@ -5,7 +5,7 @@ import {
 } from "@/store/uberSlice";
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import { useDispatch, useSelector } from "react-redux";
 import tw from "twrnc";
@@ -48,13 +48,15 @@ export default function MapContent() {
     };
     getTravelTime();
   }, [origin, destination]);
+  console.log("diem den", destination);
+  console.log("diem di", origin);
 
   return (
     <View style={tw`flex-1`}>
       <MapView
         ref={mapRef}
         style={tw`flex-1`}
-        // provider={PROVIDER_GOO GLE}
+        provider={PROVIDER_GOOGLE}
         mapType="mutedStandard"
         scrollEnabled={true}
         zoomEnabled={true}
@@ -67,6 +69,7 @@ export default function MapContent() {
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
+        loadingEnabled={true}
       >
         {/* <MapViewDirections
           origin={origin}
@@ -74,6 +77,13 @@ export default function MapContent() {
           apikey={googleMapsApiKey}
         /> */}
         {origin && destination && googleMapsApiKey && (
+          // <MapViewDirections
+          //   origin={origin?.location}
+          //   destination={destination?.location}
+          //   apikey={googleMapsApiKey}
+          //   strokeWidth={3}
+          //   strokeColor="black"
+          // />
           <MapViewDirections
             origin={origin?.description}
             destination={destination?.description}

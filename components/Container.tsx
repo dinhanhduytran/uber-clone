@@ -11,9 +11,7 @@ interface Props {
 const Container = ({ children, className }: Props) => {
   return (
     <SafeAreaView
-      style={tw`bg-white flex-1 ${
-        Platform.OS === "android" ? "mt-10" : "mt-0"
-      }`}
+      style={tw`bg-white flex-1 ${Platform.OS === "android" ? "mt-10" : "mt-0"}`}
     >
       <View style={[tw`px-5`, className ? tw`${className}` : null]}>
         {children}
